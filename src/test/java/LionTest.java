@@ -2,11 +2,9 @@ import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
 public class LionTest {
-
-
     @Test
     public void constructorThrowsExceptionOnUnsupportedSex() {
         Feline feline = new Feline();
@@ -16,6 +14,4 @@ public class LionTest {
         });
         assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
-
-
 }

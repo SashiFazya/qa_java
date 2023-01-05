@@ -7,9 +7,7 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -21,7 +19,7 @@ public class LionParameterizedTest {
     private Feline feline;
 
     @Before
-    public void init(){
+    public void init() {
         MockitoAnnotations.openMocks(this);
     }
 
@@ -30,7 +28,7 @@ public class LionParameterizedTest {
         this.checkResult = checkResult;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} - {1}")
     public static Object[][] setLionSex() {
         return new Object[][]{
                 {"Самец", true},
@@ -45,7 +43,7 @@ public class LionParameterizedTest {
     }
 
     @Test
-    public void getLionKittensReturnsValidNumber() throws Exception{
+    public void getLionKittensReturnsValidNumber() throws Exception {
         Lion lion = new Lion(feline, lionMane);
         Mockito.when(feline.getKittens()).thenReturn(1);
         int expectedResult = 1;
@@ -58,8 +56,8 @@ public class LionParameterizedTest {
         Lion lion = new Lion(feline, lionMane);
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Mockito.when(feline.getFood("Травоядное")).thenReturn(List.of("Трава", "Различные растения"));
-        List <String> actualResult = lion.getFood();
-        List <String> expectedResult = List.of("Животные", "Птицы", "Рыба");
+        List<String> actualResult = lion.getFood();
+        List<String> expectedResult = List.of("Животные", "Птицы", "Рыба");
         assertEquals(expectedResult, actualResult);
     }
 }

@@ -2,9 +2,7 @@ import com.example.Animal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -18,7 +16,7 @@ public class AnimalParameterizedTest {
         this.animalKindMeal = animalKindMeal;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters(name = "Тестовые данные {0} {1}")
     public static Object[][] getAnimalMealByKind() {
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения")},
